@@ -9,7 +9,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <span className="text-2xl font-black bg-gradient-to-r from-pink-500 via-purple-400 to-yellow-400 bg-clip-text text-transparent tracking-wider">
-            MUNDO KIDS
+            LOJA RECICLAGEM UESM
           </span>
         </div>
 
