@@ -8,10 +8,9 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <span className="text-2xl font-black bg-gradient-to-r from-pink-500 via-purple-400 to-yellow-400 bg-clip-text text-transparent tracking-wider">
-            LOJA RECICLAGEM UESM
-          </span>
-        </div>
+<span className="font-serif font-bold text-white tracking-wider">
+  UESM STORE <span className="text-rose-500">| Loja Oficial</span>
+</span>        </div>
 
         {/* Links Desktop */}
         <div className="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide text-slate-300">

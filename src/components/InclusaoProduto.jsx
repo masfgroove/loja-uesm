@@ -85,7 +85,7 @@ export default function InclusaoProduto({ onProdutoCadastrado }) {
       <div className="max-w-md mx-auto bg-neutral-900 border border-rose-500/30 rounded-2xl shadow-2xl overflow-hidden">
         <div className="bg-gradient-to-r from-rose-600 to-rose-800 p-6 text-center text-white">
           <h2 className="text-2xl font-serif font-bold">INCLUIR NOVO PRODUTO</h2>
-          <p className="text-xs text-rose-100 mt-1">Adicione novas peças diretamente na Vitrine Delas ♥</p>
+          <p className="text-xs text-rose-100 mt-1">Adicione novas peças diretamente na loja ♥</p>
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">

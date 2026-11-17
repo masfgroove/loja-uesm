@@ -85,7 +85,7 @@ export default function DetalhesProduto() {
       <div className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col items-center justify-center gap-4">
         <p className="text-neutral-400">Produto não encontrado.</p>
         <button onClick={() => navigate('/')} className="bg-rose-600 text-white px-4 py-2 rounded-lg text-xs font-semibold cursor-pointer">
-          Voltar para a Vitrine
+          Voltar para a loja
         </button>
       </div>
     );
