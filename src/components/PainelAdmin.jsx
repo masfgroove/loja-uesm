@@ -28,16 +28,7 @@ export default function PainelAdmin() {
   const [mensagemStatus, setMensagemStatus] = useState({ tipo: '', texto: '' });
 
   const categoriasLista = [
-    { id: 1, name: 'Jeans' },
-    { id: 2, name: 'Verão' },
-    { id: 3, name: 'Noite' },
-    { id: 4, name: 'Casual' },
-    { id: 5, name: 'Trabalho' },
-    { id: 6, name: 'Balada' },
-    { id: 7, name: 'Festa' },
-    { id: 8, name: 'Acessórios' },
-    { id: 9, name: 'Make' },
-    { id: 10, name: 'Promoções' }
+    { id: 1, name: 'Maquete' }    
   ];
 
   useEffect(() => {
