@@ -78,11 +78,11 @@ export default function ChatWidget() {
       allowFileUploads: false,
       allowedFilesMimeTypes: '',
       initialMessages: [
-        'Olá! Bem-vinda à Vitrine Delas! ✨ Como posso te ajudar com nossos looks ou pedidos hoje?'
+        'Olá! Bem-vindo à Loja UESM! ✨ Como posso te ajudar com nossos looks ou pedidos hoje?'
       ],
       i18n: {
         en: {
-          title: 'Atendimento Vitrine Delas',
+          title: 'Atendimento Loja UESM',
           subtitle: 'Fale com nossa assistente virtual',
           footer: '',
           getStarted: 'Nova conversa',

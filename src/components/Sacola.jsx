@@ -93,7 +93,7 @@ export default function Sacola() {
           <Link to="/" className="flex items-center gap-2 text-rose-400 hover:text-rose-300 text-sm font-semibold transition">
             <ArrowLeft className="w-4 h-4" /> Voltar ao catálogo
           </Link>
-          <h1 className="text-xl font-serif text-white font-bold tracking-wider">✨ VITRINE DELAS</h1>
+          <h1 className="text-xl font-serif text-white font-bold tracking-wider">✨ LOJA UESM</h1>
         </div>
 
         {carrinho.length === 0 ? (

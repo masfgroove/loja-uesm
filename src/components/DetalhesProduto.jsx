@@ -108,7 +108,7 @@ export default function DetalhesProduto() {
           </button>
           
           <Link to="/" className="font-serif text-xl font-bold text-rose-300 tracking-wider">
-            ✨ VITRINE DELAS
+            ✨ U E S M
           </Link>
 
           <div className="w-20"></div>
