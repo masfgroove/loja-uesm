@@ -1,1 +1,46 @@
 @import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #f8fafc; /* Fundo limpo em branco/cinza claro */
+    color: #1e293b; /* Texto principal em azul escuro legível */
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Ajustes de cores globais para o tema Azul e Branco */
+.bg-neutral-950, .bg-neutral-900 {
+  background-color: #ffffff !important;
+}
+
+.bg-neutral-900\/60 {
+  background-color: #f1f5f9 !important;
+}
+
+.border-neutral-800, .border-neutral-900 {
+  border-color: #cbd5e1 !important;
+}
+
+.text-neutral-100, .text-neutral-200, .text-neutral-300 {
+  color: #0f172a !important;
+}
+
+.text-neutral-400, .text-neutral-500 {
+  color: #64748b !important;
+}
+
+/* Substitui os tons rosa/vermelho por Azul Marinho e Azul Vibrante */
+.bg-rose-600 {
+  background-color: #1d4ed8 !important;
+}
+.bg-rose-600:hover {
+  background-color: #1e40af !important;
+}
+
+.text-rose-400, .text-rose-500, .text-rose-200 {
+  color: #2563eb !important;
+}
+
+.border-rose-500, .focus\:border-rose-500:focus {
+  border-color: #2563eb !important;
+}
