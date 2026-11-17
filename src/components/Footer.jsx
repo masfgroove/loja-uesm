@@ -18,7 +18,7 @@ export default function Footer() {
             <span className="text-rose-400">✨</span> Fique por dentro
           </h3>
           <p className="text-xs text-neutral-400 leading-relaxed">
-            Cadastre-se na <strong>Vitrine Delas</strong> para receber novidades, lançamentos e cupons de desconto exclusivos em primeira mão.
+            Cadastre-se na <strong>UESM</strong> para receber novidades, lançamentos e cupons de desconto exclusivos em primeira mão.
           </p>
           <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-2">
             <input 
@@ -102,7 +102,7 @@ export default function Footer() {
 
       {/* Copyright e Assinatura do Desenvolvedor */}
       <div className="border-t border-neutral-900 pt-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-[11px] text-neutral-500 gap-4">
-        <p>© 2026 Vitrine Delas. Todos os direitos reservados.</p>
+        <p>© 2026 U E S M. Todos os direitos reservados.</p>
         
         {/* Sua Propaganda / Assinatura */}
         <div className="flex flex-wrap items-center justify-center gap-3 bg-neutral-900/60 px-4 py-2 rounded-lg border border-neutral-800/80 text-neutral-300">

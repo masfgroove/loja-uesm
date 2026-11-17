@@ -197,7 +197,7 @@ export default function App() {
           
           <div className="flex items-center justify-between w-full md:w-auto">
             <a href="#" className="flex items-center gap-2 font-serif text-xl font-bold text-rose-300 tracking-wider">
-              <span className="text-2xl">✨</span> VITRINE DELAS
+              <span className="text-2xl">✨</span> U E S M
             </a>
 
             <div className="flex items-center gap-2 md:hidden">
@@ -394,7 +394,7 @@ export default function App() {
                       <div className="p-4 space-y-2 flex-1 flex flex-col justify-between">
                         <div className="space-y-1">
                           <span className="text-[10px] text-neutral-400 uppercase font-semibold">
-                            Por <strong className="text-rose-300">Vitrine Delas</strong>
+                            Por <strong className="text-rose-300">UESM</strong>
                           </span>
                           <h3 className="font-normal text-white text-sm line-clamp-2 leading-snug group-hover:text-rose-300 transition">
                             {prodNome}
