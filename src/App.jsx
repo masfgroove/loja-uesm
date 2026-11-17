@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 export default function App() {
-  const navigate = useNavigate(); // Hook de navegação para redirecionar para /sacola
+  const navigate = useNavigate(); 
   const [produtos, setProdutos] = useState([]);
   const [categoriaSelecionada, setCategoriaSelecionada] = useState('Todos');
   const [busca, setBusca] = useState('');
@@ -21,7 +21,6 @@ export default function App() {
   const [mostrarModalAdmin, setMostrarModalAdmin] = useState(false);
   const [carrinho, setCarrinho] = useState([]);
 
-  // Categorias Oficiais completas alinhadas com o Banco e o menu superior
   const categoriasLista = [
     { id: 0, name: 'Todos' },
     { id: 1, name: 'Jeans' },
@@ -36,7 +35,6 @@ export default function App() {
     { id: 10, name: 'Promoções' }
   ];
 
-  // Formulário Admin alinhado com o backend LojaBrás (`/produtos`)
   const [novoProduto, setNovoProduto] = useState({
     titulo: '',
     descricao: '',
@@ -53,7 +51,6 @@ export default function App() {
 
   useEffect(() => {
     carregarProdutos();
-    // Carrega carrinho salvo se houver
     const carrinhoSalvo = JSON.parse(localStorage.getItem('carrinho_vitrine'));
     if (carrinhoSalvo) setCarrinho(carrinhoSalvo);
   }, []);
@@ -139,14 +136,11 @@ export default function App() {
     }
   };
 
-  // ADICIONAR À SACOLA E REDIRECIONAR IMEDIATAMENTE PARA /sacola
   const adicionarAoCarrinho = (prod, e) => {
     if (e) e.stopPropagation(); 
     const novoCarrinho = [...carrinho, prod];
     setCarrinho(novoCarrinho);
     localStorage.setItem('carrinho_vitrine', JSON.stringify(novoCarrinho));
-    
-    // Redireciona direto para a página de sacola
     navigate('/sacola');
   };
 
@@ -189,14 +183,14 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-rose-500 selection:text-white">
+    <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-blue-600 selection:text-white">
       
       {/* HEADER */}
       <header className="sticky top-0 z-40 bg-black/95 border-b border-neutral-800 px-4 lg:px-8 py-3">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
           
           <div className="flex items-center justify-between w-full md:w-auto">
-            <a href="#" className="flex items-center gap-2 font-serif text-xl font-bold text-rose-300 tracking-wider">
+            <a href="#" className="flex items-center gap-2 font-serif text-xl font-bold text-blue-300 tracking-wider">
               <span className="text-2xl">✨</span> U E S M
             </a>
 
@@ -204,7 +198,7 @@ export default function App() {
               {localStorage.getItem('clienteLogadoId') ? (
                 <Link 
                   to="/dashboard"
-                  className="p-2 bg-neutral-900 border border-neutral-800 rounded-lg text-rose-400"
+                  className="p-2 bg-neutral-900 border border-neutral-800 rounded-lg text-blue-400"
                   title="Dashboard do Cliente"
                 >
                   <User className="w-5 h-5" />
@@ -212,7 +206,7 @@ export default function App() {
               ) : (
                 <Link 
                   to="/login"
-                  className="p-2 bg-neutral-900 border border-neutral-800 rounded-lg text-rose-400"
+                  className="p-2 bg-neutral-900 border border-neutral-800 rounded-lg text-blue-400"
                   title="Entrar"
                 >
                   <User className="w-5 h-5" />
@@ -221,11 +215,11 @@ export default function App() {
               
               <Link 
                 to="/sacola"
-                className="p-2 bg-neutral-900 border border-neutral-800 rounded-lg text-rose-400 relative"
+                className="p-2 bg-neutral-900 border border-neutral-800 rounded-lg text-blue-400 relative"
               >
                 <ShoppingBag className="w-5 h-5" />
                 {carrinho.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                     {carrinho.length}
                   </span>
                 )}
@@ -239,7 +233,7 @@ export default function App() {
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
               placeholder="Buscar produtos, marcas, roupas e muito mais..." 
-              className="w-full bg-neutral-900 text-neutral-100 placeholder-neutral-500 px-4 py-2.5 pl-10 rounded-lg border border-neutral-800 focus:outline-none focus:border-rose-500 text-sm shadow-inner"
+              className="w-full bg-neutral-900 text-neutral-100 placeholder-neutral-500 px-4 py-2.5 pl-10 rounded-lg border border-neutral-800 focus:outline-none focus:border-blue-500 text-sm shadow-inner"
             />
             <Search className="w-4 h-4 text-neutral-400 absolute left-3.5 top-3.5" />
             {busca && (
@@ -253,7 +247,7 @@ export default function App() {
             {localStorage.getItem('clienteLogadoId') ? (
               <Link 
                 to="/dashboard"
-                className="px-3.5 py-2 bg-neutral-900 hover:bg-neutral-800 text-rose-300 rounded-lg transition border border-rose-500/30 text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+                className="px-3.5 py-2 bg-neutral-900 hover:bg-neutral-800 text-blue-300 rounded-lg transition border border-blue-500/30 text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
               >
                 <User className="w-4 h-4" />
                 <span>Olá, {localStorage.getItem('clienteLogadoNome') || 'Cliente'}</span>
@@ -261,23 +255,21 @@ export default function App() {
             ) : (
               <Link 
                 to="/login"
-                className="px-3.5 py-2 bg-neutral-900 hover:bg-neutral-800 text-rose-300 rounded-lg transition border border-rose-500/30 text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+                className="px-3.5 py-2 bg-neutral-900 hover:bg-neutral-800 text-blue-300 rounded-lg transition border border-blue-500/30 text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
               >
                 <User className="w-4 h-4" />
                 <span>Entrar</span>
               </Link>
             )}
 
-           
-
             <Link 
               to="/sacola"
               className="p-2.5 bg-neutral-900 hover:bg-neutral-800 text-neutral-200 rounded-lg transition border border-neutral-800 relative cursor-pointer flex items-center gap-2"
             >
-              <ShoppingBag className="w-5 h-5 text-rose-400" />
+              <ShoppingBag className="w-5 h-5 text-blue-400" />
               <span className="text-xs font-medium">Sacola</span>
               {carrinho.length > 0 && (
-                <span className="bg-rose-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="bg-blue-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                   {carrinho.length}
                 </span>
               )}
@@ -299,7 +291,7 @@ export default function App() {
 
             <div className="bg-neutral-900/40 p-4 rounded-xl border border-neutral-800 space-y-4">
               <h3 className="text-xs font-bold text-neutral-300 uppercase tracking-wider flex items-center gap-1.5">
-                <SlidersHorizontal className="w-3.5 h-3.5 text-rose-400" /> Filtros
+                <SlidersHorizontal className="w-3.5 h-3.5 text-blue-400" /> Filtros
               </h3>
 
               <label className="flex items-center justify-between text-xs text-neutral-300 cursor-pointer p-2 rounded hover:bg-neutral-900 transition">
@@ -310,7 +302,7 @@ export default function App() {
                   type="checkbox" 
                   checked={apenasFreteGratis}
                   onChange={(e) => setApenasFreteGratis(e.target.checked)}
-                  className="accent-rose-500 w-4 h-4 cursor-pointer"
+                  className="accent-blue-600 w-4 h-4 cursor-pointer"
                 />
               </label>
             </div>
@@ -324,7 +316,7 @@ export default function App() {
                       onClick={() => setCategoriaSelecionada(cat.name)}
                       className={`w-full text-left py-2 px-3 rounded flex justify-between items-center transition ${
                         categoriaSelecionada.toLowerCase() === cat.name.toLowerCase() 
-                          ? 'bg-rose-500/20 text-rose-300 font-bold border-l-4 border-rose-500' 
+                          ? 'bg-blue-600/20 text-blue-300 font-bold border-l-4 border-blue-600' 
                           : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
                       }`}
                     >
@@ -362,7 +354,7 @@ export default function App() {
                 <p className="text-neutral-300 font-medium">Nenhum produto encontrado nesta categoria.</p>
                 <button 
                   onClick={() => setCategoriaSelecionada('Todos')}
-                  className="text-xs bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded transition"
+                  className="text-xs bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition"
                 >
                   Ver Todos os Produtos
                 </button>
@@ -378,7 +370,7 @@ export default function App() {
                   return (
                     <div 
                       key={prodId}
-                      className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden hover:border-rose-500/60 transition duration-300 flex flex-col justify-between group relative shadow-lg"
+                      className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden hover:border-blue-500/60 transition duration-300 flex flex-col justify-between group relative shadow-lg"
                     >
                       <div className="relative h-72 bg-neutral-950 overflow-hidden">
                         <img 
@@ -394,23 +386,23 @@ export default function App() {
                       <div className="p-4 space-y-2 flex-1 flex flex-col justify-between">
                         <div className="space-y-1">
                           <span className="text-[10px] text-neutral-400 uppercase font-semibold">
-                            Por <strong className="text-rose-300">UESM</strong>
+                            Por <strong className="text-blue-300">UESM</strong>
                           </span>
-                          <h3 className="font-normal text-white text-sm line-clamp-2 leading-snug group-hover:text-rose-300 transition">
+                          <h3 className="font-normal text-white text-sm line-clamp-2 leading-snug group-hover:text-blue-300 transition">
                             {prodNome}
                           </h3>
                         </div>
 
                         <div className="pt-2 border-t border-neutral-800/80 space-y-2">
                           <div>
-                            <p className="text-2xl font-bold text-rose-300">
+                            <p className="text-2xl font-bold text-blue-300">
                               R$ {parseFloat(prodPreco).toFixed(2)}
                             </p>
                           </div>
 
                           <button 
                             onClick={(e) => adicionarAoCarrinho(p, e)}
-                            className="w-full mt-2 bg-neutral-800 hover:bg-rose-600 text-white py-2 rounded-lg text-xs font-semibold uppercase transition flex items-center justify-center gap-2 cursor-pointer"
+                            className="w-full mt-2 bg-neutral-800 hover:bg-blue-600 text-white py-2 rounded-lg text-xs font-semibold uppercase transition flex items-center justify-center gap-2 cursor-pointer"
                           >
                             <ShoppingBag className="w-4 h-4" /> Adicionar à Sacola
                           </button>
@@ -428,11 +420,11 @@ export default function App() {
       {/* MODAL ADMIN */}
       {mostrarModalAdmin && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-neutral-900 border border-rose-500/30 rounded-xl max-w-lg w-full p-6 relative my-8">
+          <div className="bg-neutral-900 border border-blue-500/30 rounded-xl max-w-lg w-full p-6 relative my-8">
             <button onClick={() => setMostrarModalAdmin(false)} className="absolute top-4 right-4 text-neutral-400 hover:text-white cursor-pointer">
               <X className="w-6 h-6" />
             </button>
-            <h3 className="text-xl font-serif text-rose-200 mb-2">Cadastrar Produto no Banco</h3>
+            <h3 className="text-xl font-serif text-blue-200 mb-2">Cadastrar Produto no Banco</h3>
             
             {mensagemStatus.texto && (
               <div className={`p-3 mb-4 rounded text-xs font-medium ${
@@ -452,7 +444,7 @@ export default function App() {
                   onChange={handleInputChange} 
                   required 
                   placeholder="Ex: Cropped Seda Premium"
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-rose-500"
+                  className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -464,7 +456,7 @@ export default function App() {
                   value={novoProduto.descricao} 
                   onChange={handleInputChange} 
                   placeholder="Detalhes do produto"
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-rose-500"
+                  className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -479,7 +471,7 @@ export default function App() {
                     onChange={handleInputChange} 
                     required 
                     placeholder="79.90"
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-rose-500"
+                    className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500"
                   />
                 </div>
                 <div>
@@ -488,7 +480,7 @@ export default function App() {
                     name="categoriaId" 
                     value={novoProduto.categoria.id} 
                     onChange={handleInputChange} 
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-rose-500 cursor-pointer"
+                    className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500 cursor-pointer"
                   >
                     {categoriasLista.filter(c => c.id !== 0).map(cat => (
                       <option key={cat.id} value={cat.id}>
@@ -508,7 +500,7 @@ export default function App() {
                     value={novoProduto.tamanhosDisponiveis} 
                     onChange={handleInputChange} 
                     placeholder="P, M, G, GG"
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-rose-500"
+                    className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500"
                   />
                 </div>
                 <div>
@@ -519,7 +511,7 @@ export default function App() {
                     value={novoProduto.coresDisponiveis} 
                     onChange={handleInputChange} 
                     placeholder="Azul, Preto, Branco"
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-rose-500"
+                    className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -532,14 +524,14 @@ export default function App() {
                   value={novoProduto.imageUrl} 
                   onChange={handleInputChange} 
                   placeholder="https://exemplo.com/foto.jpg"
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-rose-500"
+                  className="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500"
                 />
               </div>
 
               <button 
                 type="submit" 
                 disabled={enviando} 
-                className="w-full bg-rose-600 hover:bg-rose-700 text-white font-medium py-2.5 rounded text-sm transition cursor-pointer mt-4"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded text-sm transition cursor-pointer mt-4"
               >
                 {enviando ? 'Salvando...' : 'Salvar Produto'}
               </button>
@@ -552,5 +544,4 @@ export default function App() {
       <Footer />
     </div>
   );
-
 }
