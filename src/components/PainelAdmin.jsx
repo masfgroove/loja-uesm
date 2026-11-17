@@ -34,6 +34,7 @@ export default function PainelAdmin() {
   useEffect(() => {
     carregarDadosAdmin();
   }, [abaAtiva]);
+  
 
   const carregarDadosAdmin = async () => {
     try {
